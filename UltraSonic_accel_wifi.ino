@@ -70,7 +70,7 @@ void loop(){
     while (client.connected()) { // loop while the client's connected
       float tripT = getTripT();
       Serial.print(tripT);+
-      client.print(String(tripT));
+      client.println(String(tripT));
       mpu6050.update(); //update the MPU6050
       getMotion6(); //gain the values of Acceleration and Gyroscope value
       Serial.print("a/g:\t");
