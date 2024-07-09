@@ -70,7 +70,7 @@ void loop(){
     while (client.connected()) { // loop while the client's connected
       float tripT = getTripT();
       Serial.print(tripT);+
-      client.println(String(tripT));
+      client.print(String(tripT) + String(", "));
       mpu6050.update(); //update the MPU6050
       getMotion6(); //gain the values of Acceleration and Gyroscope value
       Serial.print("a/g:\t");
@@ -81,8 +81,8 @@ void loop(){
       Serial.print(gy); Serial.print("\t\t");
       Serial.println(gz);
       String accel = String("a/g: ") + String(ax) + String("\t") + String(ay) + String("\t") + String(az) + String("\t") + String(gx) + String("\t") + String(gy) + String("\t") + String(gz);
-      //client.println(accel);
-      delay(100);
+      client.println(accel);
+      delay(500);
     }
     client.stop(); // stop the client connecting.
     Serial.println("Client Disconnected.");

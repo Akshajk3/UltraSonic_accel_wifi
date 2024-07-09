@@ -1,9 +1,12 @@
 import socket
 import matplotlib.pyplot as plt
 import keyboard
+import csv
 
 HOST = '192.168.1.141'
 PORT = 80
+
+filename = "data.csv"
 
 data_points = []
 max_points = 50  # Set the limit for the number of data points to be plotted
